@@ -31,6 +31,23 @@ public class InterfazMatematicas extends JFrame{
 	
 	private void redimensionarVentana(int f, int c){
 
+		int ancho  = getWidth();
+		int alto = getHeight();
+		   	 
+		int anchoMinimo = 50 + PanelMatriz.TAMANO_LADO_CASILLA*c;
+		int altoMinimo  = 50 + panelInformacion.getHeight() + PanelMatriz.TAMANO_LADO_CASILLA*f;
+		   	 
+		  boolean cambio = false;
+		  if(anchoMinimo>ancho){
+		    ancho = anchoMinimo;
+		    cambio = true;
+		  }
+		  if(altoMinimo>alto){
+		    alto = altoMinimo;
+		    cambio = true;
+		  }	 
+		  if(cambio) setSize(ancho,alto);
+
 	}
 	
 	private void mostrarNuevaMatriz(){
@@ -53,10 +70,8 @@ public class InterfazMatematicas extends JFrame{
 	}
 	
 	public void sumar(){
-		if(hiloM==null || !hiloM.isAlive()) {
 			hiloM = new HiloMatriz(mat, this);
 			hiloM.start();
-		}
 	}
 	
 	public void cambiarColor() {
