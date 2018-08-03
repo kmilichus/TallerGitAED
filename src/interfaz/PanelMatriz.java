@@ -51,6 +51,8 @@ public class PanelMatriz extends JPanel implements MouseListener{
 	}
 	
 	public void cambiarFondo(Color nuevoColor) {
+		
+		
 	}
 
 	@Override
@@ -60,6 +62,8 @@ public class PanelMatriz extends JPanel implements MouseListener{
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
+		Color colorA = generarColorAleatorio();
+		cambiarFondo(colorA);
 	}
 
 	@Override
