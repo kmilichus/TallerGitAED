@@ -5,7 +5,7 @@ import mundo.Casilla;
 import mundo.Matematica;
 
 public class HiloMatriz extends Thread{
-	public final static long TIEMPO_CASILLA = 500;
+	public final static long TIEMPO_CASILLA = 1000;
 	private Matematica mat;
 	private InterfazMatematicas principal;
 	
