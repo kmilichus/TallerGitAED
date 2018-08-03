@@ -1,6 +1,7 @@
 package interfaz;
 
 import java.awt.BorderLayout;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -82,6 +83,13 @@ public class InterfazMatematicas extends JFrame{
 	}
 	
 	public void guardar(){
+		try {
+			mat.guardar();
+			JOptionPane.showMessageDialog(this, "Se guardo exitosamente la matriz en el archivo:\n'"+Matematica.NOMBRE_ULTIMA_MATRIZ+"'");
+		}catch(IOException e) {
+			JOptionPane.showMessageDialog(this, "Se encontraron problemas guardando en el archivo:\n'"+Matematica.NOMBRE_ULTIMA_MATRIZ+"'");
+			e.printStackTrace();
+		}
 	}
 	
 	public static void main(String[] args){
