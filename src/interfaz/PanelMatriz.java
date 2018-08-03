@@ -11,7 +11,7 @@ import mundo.Casilla;
 
 @SuppressWarnings("serial")
 public class PanelMatriz extends JPanel implements MouseListener{
-	public final static int TAMANO_LADO_CASILLA = 30;
+	public final static int TAMANO_LADO_CASILLA = 50;
 	private Casilla[][] matrizDidactica;
 	private InterfazMatematicas principal;
 	
