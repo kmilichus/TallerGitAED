@@ -12,27 +12,24 @@ import mundo.Matematica;
 
 @SuppressWarnings("serial")
 public class InterfazMatematicas extends JFrame{
-	private static final String GUARDAR = "Guardar";
+	
 	private Matematica mat;
 	private PanelInformacion panelInformacion;
 	private PanelMatriz panelMatriz;
 	private HiloMatriz hiloM;
-	private JButton butGuardar;
+	
 	
 	public InterfazMatematicas(){
 		setLayout(new BorderLayout());
 		setTitle("Matemáticas Didacticas");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
-		butGuardar = new JButton("Guardar");
-		butGuardar.addActionListener(this);
-		butGuardar.setActionCommand(GUARDAR);
 		
 		mat = new Matematica();
 		panelInformacion = new PanelInformacion(this);
 		panelMatriz = new PanelMatriz(this);
 		
-		add(butGuardar);
+		
 		add(panelInformacion, BorderLayout.NORTH);
 		add(panelMatriz, BorderLayout.CENTER);
 		pack();
