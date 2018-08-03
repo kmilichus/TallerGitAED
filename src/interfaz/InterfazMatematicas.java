@@ -12,6 +12,7 @@ import mundo.Matematica;
 
 @SuppressWarnings("serial")
 public class InterfazMatematicas extends JFrame{
+	private static final String GUARDAR = "Guardar";
 	private Matematica mat;
 	private PanelInformacion panelInformacion;
 	private PanelMatriz panelMatriz;
