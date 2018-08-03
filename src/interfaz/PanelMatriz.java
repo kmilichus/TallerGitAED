@@ -47,11 +47,21 @@ public class PanelMatriz extends JPanel implements MouseListener{
 	}
 	
 	public Color generarColorAleatorio() {
-		return null;
+		
+		  int r = (int)(Math.random()*256);
+		  int g = (int)(Math.random()*256);
+		  int b = (int)(Math.random()*256);
+		  Color colorAleatorio = new Color(r,g,b);
+		  return colorAleatorio;		
 	}
 	
 	public void cambiarFondo(Color nuevoColor) {
+<<<<<<< HEAD
 		setBackground(nuevoColor);
+=======
+		
+		
+>>>>>>> 8efadcc8303ec8e0776ad0ef4c552d77eec54644
 	}
 
 	@Override
@@ -61,6 +71,8 @@ public class PanelMatriz extends JPanel implements MouseListener{
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
+		Color colorA = generarColorAleatorio();
+		cambiarFondo(colorA);
 	}
 
 	@Override
