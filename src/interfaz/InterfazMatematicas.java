@@ -1,6 +1,8 @@
 package interfaz;
 
 import java.awt.BorderLayout;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -87,6 +89,23 @@ public class InterfazMatematicas extends JFrame{
 	}
 	
 	public void cargar(){
+		try {
+			mat.cargar();
+			mostrarNuevaMatriz();
+			JOptionPane.showMessageDialog(this,
+					"Se cargó exitosamente la matriz del archivo:\n'" 
+							+ Matematica.NOMBRE_ULTIMA_MATRIZ+ " ' ");	
+		} catch (FileNotFoundException e) {
+			JOptionPane.showMessageDialog(this,
+					"El archivo ' " 
+							+ Matematica.NOMBRE_ULTIMA_MATRIZ+" ' no existe");
+			e.printStackTrace();
+		}catch (IOException e) {
+			JOptionPane.showMessageDialog(this,
+					"Se encontraron problemas leyendo el archivo:\n'"
+						+ Matematica.NOMBRE_ULTIMA_MATRIZ+ " ' ");
+			e.printStackTrace();
+		}
 	}
 	
 	public void guardar(){
