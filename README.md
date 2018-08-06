@@ -1,1 +1,2 @@
 # MatricesDidacticas
+We were developing something functionalities about the project called "MatricesDidacticas" using github, so that we did fulfill with the objective of the project, which it learn to use git and github.  

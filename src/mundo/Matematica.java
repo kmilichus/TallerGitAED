@@ -67,7 +67,19 @@ public class Matematica {
 		bw.close();
 	}
 	
-	public void cargar(){
+	public void cargar() throws FileNotFoundException, IOException{
 		
+		Scanner lector = new Scanner(new FileReader(NOMBRE_ULTIMA_MATRIZ));
+		
+		int f = lector.nextInt();
+		int c = lector.nextInt();
+		
+		matrizDidactica = new Casilla[f][c];
+		for(int i = 0; i < matrizDidactica.length;i++){
+			for(int j = 0; j < matrizDidactica[i].length; j++) {
+				matrizDidactica[i][j] = new Casilla(lector.nextInt());
+			}
+		}
+		lector.close();
 	}
 }
