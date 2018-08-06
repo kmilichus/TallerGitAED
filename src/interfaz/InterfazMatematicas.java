@@ -1,7 +1,7 @@
 package interfaz;
 
 import java.awt.BorderLayout;
-import java.io.FileNotFoundException;
+
 import java.io.IOException;
 
 import javax.swing.JFrame;
@@ -19,7 +19,7 @@ public class InterfazMatematicas extends JFrame{
 	
 	public InterfazMatematicas(){
 		setLayout(new BorderLayout());
-		setTitle("Matem√°ticas Didacticas");
+		setTitle("Matem·ticas Didacticas");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		mat = new Matematica();

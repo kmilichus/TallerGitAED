@@ -67,7 +67,7 @@ public class Matematica {
 		bw.close();
 	}
 	
-	public void cargar() throws FileNotFoundException, IOException{
+	public void cargar(){
 		
 	}
 }
