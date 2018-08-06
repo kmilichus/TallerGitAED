@@ -3,7 +3,6 @@ package interfaz;
 import java.awt.BorderLayout;
 import java.io.IOException;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -12,18 +11,15 @@ import mundo.Matematica;
 
 @SuppressWarnings("serial")
 public class InterfazMatematicas extends JFrame{
-	
 	private Matematica mat;
 	private PanelInformacion panelInformacion;
 	private PanelMatriz panelMatriz;
 	private HiloMatriz hiloM;
 	
-	
 	public InterfazMatematicas(){
 		setLayout(new BorderLayout());
 		setTitle("Matemáticas Didacticas");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		
 		
 		mat = new Matematica();
 		panelInformacion = new PanelInformacion(this);
