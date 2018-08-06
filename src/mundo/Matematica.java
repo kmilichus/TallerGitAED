@@ -1,8 +1,11 @@
 package mundo;
 
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Matematica {
 	public final static String NOMBRE_ULTIMA_MATRIZ = "datos/UltimaMatrizGuardada.txt";
