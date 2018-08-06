@@ -20,6 +20,7 @@ public class PanelInformacion extends JPanel implements ActionListener{
 	private JTextField txtCols;
 	private JButton butGenerarMatriz;
 	private JButton butCargar;
+	private JButton butGuardar;
 	
 	private JTextField txtResultado;
 	
@@ -36,6 +37,11 @@ public class PanelInformacion extends JPanel implements ActionListener{
 		setBorder(new TitledBorder("Información"));
 		setLayout(new FlowLayout());
 		
+		butGuardar = new JButton("Guardar");
+		butGuardar.addActionListener(this);
+		butGuardar.setActionCommand(GUARDAR);
+		
+		
 		labFilas = new JLabel("# de Filas:",SwingConstants.RIGHT);
 		labCols  = new JLabel("# de Columnas:",SwingConstants.RIGHT);
 		labResultado = new JLabel("Suma:",SwingConstants.RIGHT);
@@ -43,6 +49,7 @@ public class PanelInformacion extends JPanel implements ActionListener{
 		txtCols  = new JTextField(2);
 		butGenerarMatriz = new JButton("Generar Matriz");
 		butCargar = new JButton("Cargar");
+		
 		
 		txtResultado = new JTextField(4);
 		txtResultado.setEditable(false);
@@ -55,11 +62,8 @@ public class PanelInformacion extends JPanel implements ActionListener{
 		
 		butGenerarMatriz.setActionCommand(GENERAR_MATRIZ);
 		
-		butCargar.addActionListener(this);
-		
-		butCargar.setActionCommand(CARGAR);
-		
 		add(labFilas);
+		add(butGuardar);
 		add(txtFilas);
 		add(labCols);
 		add(txtCols);
@@ -87,8 +91,9 @@ public class PanelInformacion extends JPanel implements ActionListener{
 		if(comando.equals(GENERAR_MATRIZ)){
 			principal.generarMatriz();			
 		}
-		if(comando.equals(CARGAR)) {
+		if(comando.equals(GUARDAR)) {
 			principal.cargar();
 		}
 	}
+
 }

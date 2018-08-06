@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import java.io.IOException;
+
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -19,12 +21,13 @@ public class InterfazMatematicas extends JFrame{
 	
 	public InterfazMatematicas(){
 		setLayout(new BorderLayout());
-		setTitle("Matem√°ticas Didacticas");
+		setTitle("Matem·ticas Didacticas");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		mat = new Matematica();
 		panelInformacion = new PanelInformacion(this);
 		panelMatriz = new PanelMatriz(this);
+		
 		
 		add(panelInformacion, BorderLayout.NORTH);
 		add(panelMatriz, BorderLayout.CENTER);
@@ -109,6 +112,13 @@ public class InterfazMatematicas extends JFrame{
 	}
 	
 	public void guardar(){
+		try {
+			mat.guardar();
+			JOptionPane.showMessageDialog(this, "Se guardo exitosamente la matriz en el archivo:\n'"+Matematica.NOMBRE_ULTIMA_MATRIZ+"'");
+		}catch(IOException e) {
+			JOptionPane.showMessageDialog(this, "Se encontraron problemas guardando en el archivo:\n'"+Matematica.NOMBRE_ULTIMA_MATRIZ+"'");
+			e.printStackTrace();
+		}
 	}
 	
 	public static void main(String[] args){
