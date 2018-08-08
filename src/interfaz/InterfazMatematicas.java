@@ -1,7 +1,13 @@
 package interfaz;
 
 import java.awt.BorderLayout;
+
 import java.awt.Color;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import java.io.IOException;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -25,12 +31,30 @@ public class InterfazMatematicas extends JFrame{
 		panelInformacion = new PanelInformacion(this);
 		panelMatriz = new PanelMatriz(this);
 		
+		
 		add(panelInformacion, BorderLayout.NORTH);
 		add(panelMatriz, BorderLayout.CENTER);
 		pack();
 	}
 	
 	private void redimensionarVentana(int f, int c){
+
+		int ancho  = getWidth();
+		int alto = getHeight();
+		   	 
+		int anchoMinimo = 50 + PanelMatriz.TAMANO_LADO_CASILLA*c;
+		int altoMinimo  = 50 + panelInformacion.getHeight() + PanelMatriz.TAMANO_LADO_CASILLA*f;
+		   	 
+		  boolean cambio = false;
+		  if(anchoMinimo>ancho){
+		    ancho = anchoMinimo;
+		    cambio = true;
+		  }
+		  if(altoMinimo>alto){
+		    alto = altoMinimo;
+		    cambio = true;
+		  }	 
+		  if(cambio) setSize(ancho,alto);
 
 	}
 	
@@ -54,10 +78,8 @@ public class InterfazMatematicas extends JFrame{
 	}
 	
 	public void sumar(){
-		if(hiloM==null || !hiloM.isAlive()) {
 			hiloM = new HiloMatriz(mat, this);
 			hiloM.start();
-		}
 	}
 	
 	public void cambiarColor() {
@@ -75,9 +97,33 @@ public class InterfazMatematicas extends JFrame{
 	}
 	
 	public void cargar(){
+		try {
+			mat.cargar();
+			mostrarNuevaMatriz();
+			JOptionPane.showMessageDialog(this,
+					"Se cargÃ³ exitosamente la matriz del archivo:\n'" 
+							+ Matematica.NOMBRE_ULTIMA_MATRIZ+ " ' ");	
+		} catch (FileNotFoundException e) {
+			JOptionPane.showMessageDialog(this,
+					"El archivo ' " 
+							+ Matematica.NOMBRE_ULTIMA_MATRIZ+" ' no existe");
+			e.printStackTrace();
+		}catch (IOException e) {
+			JOptionPane.showMessageDialog(this,
+					"Se encontraron problemas leyendo el archivo:\n'"
+						+ Matematica.NOMBRE_ULTIMA_MATRIZ+ " ' ");
+			e.printStackTrace();
+		}
 	}
 	
 	public void guardar(){
+		try {
+			mat.guardar();
+			JOptionPane.showMessageDialog(this, "Se guardo exitosamente la matriz en el archivo:\n'"+Matematica.NOMBRE_ULTIMA_MATRIZ+"'");
+		}catch(IOException e) {
+			JOptionPane.showMessageDialog(this, "Se encontraron problemas guardando en el archivo:\n'"+Matematica.NOMBRE_ULTIMA_MATRIZ+"'");
+			e.printStackTrace();
+		}
 	}
 	
 	public static void main(String[] args){

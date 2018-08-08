@@ -11,7 +11,7 @@ import mundo.Casilla;
 
 @SuppressWarnings("serial")
 public class PanelMatriz extends JPanel implements MouseListener{
-	public final static int TAMANO_LADO_CASILLA = 30;
+	public final static int TAMANO_LADO_CASILLA = 50;
 	private Casilla[][] matrizDidactica;
 	private InterfazMatematicas principal;
 	
@@ -34,13 +34,14 @@ public class PanelMatriz extends JPanel implements MouseListener{
 				int x = j*TAMANO_LADO_CASILLA;
 				int y = i*TAMANO_LADO_CASILLA;
 				if(matrizDidactica[i][j].darEstado()==Casilla.ESTADO_NORMAL){
-					g.setColor(Color.LIGHT_GRAY);
+					g.setColor(new Color(240,240,240));
 				}else{
-					g.setColor(Color.YELLOW);
+					g.setColor(Color.PINK);
 				}
 				g.fillRect(x, y, TAMANO_LADO_CASILLA, TAMANO_LADO_CASILLA);
-				g.setColor(Color.BLUE);
+				g.setColor(Color.RED);
 				g.drawRect(x, y, TAMANO_LADO_CASILLA, TAMANO_LADO_CASILLA);
+				g.setColor(Color.BLACK);
 				g.drawString(matrizDidactica[i][j].darValor()+"", x+TAMANO_LADO_CASILLA/4, y+3*TAMANO_LADO_CASILLA/4);
 			}
 		}
@@ -62,7 +63,13 @@ public class PanelMatriz extends JPanel implements MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		principal.sumar();
+//		principal.sumar();
+		if(e.getButton()==MouseEvent.BUTTON1){
+			  principal.sumar();
+			}else if(e.getButton()==MouseEvent.BUTTON3){
+			  principal.cambiarCalculando(false);
+			}
+
 	}
 
 	@Override
