@@ -1,6 +1,9 @@
 package interfaz;
 
 import java.awt.BorderLayout;
+
+import java.awt.Color;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -21,7 +24,7 @@ public class InterfazMatematicas extends JFrame{
 	
 	public InterfazMatematicas(){
 		setLayout(new BorderLayout());
-		setTitle("Matem�ticas Didacticas");
+		setTitle("Matemáticas Didacticas");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		mat = new Matematica();
@@ -80,6 +83,8 @@ public class InterfazMatematicas extends JFrame{
 	}
 	
 	public void cambiarColor() {
+		Color nuevo = panelMatriz.generarColorAleatorio();
+		  panelMatriz.cambiarFondo(nuevo);
 	}
 	
 	public void refrescarMatriz(){
@@ -96,7 +101,7 @@ public class InterfazMatematicas extends JFrame{
 			mat.cargar();
 			mostrarNuevaMatriz();
 			JOptionPane.showMessageDialog(this,
-					"Se cargó exitosamente la matriz del archivo:\n'" 
+					"Se cargÃ³ exitosamente la matriz del archivo:\n'" 
 							+ Matematica.NOMBRE_ULTIMA_MATRIZ+ " ' ");	
 		} catch (FileNotFoundException e) {
 			JOptionPane.showMessageDialog(this,
